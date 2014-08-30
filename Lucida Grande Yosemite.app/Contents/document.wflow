@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>404</string>
+	<key>AMApplicationVersion</key>
+	<string>2.5</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>AppleScript ausführen</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string># Get path of Automator script, as it'll vanish when using 'osascript' directlyon run {input, parameters}	return POSIX path of (path to me) as textend run</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>3FDB25E4-DAE2-4373-8339-2F07A2C4038F</string>
+				<key>Keywords</key>
+				<array>
+					<string>Ausführen</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>FB927A83-27C2-48F6-9444-B79C999AAE72</string>
+				<key>UUID</key>
+				<string>1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>773.000000:316.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.0.3</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<dict/>
+					<key>CheckedForUserDefaultShell</key>
+					<dict/>
+					<key>inputMethod</key>
+					<dict/>
+					<key>shell</key>
+					<dict/>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<key>ActionName</key>
+				<string>Shell-Skript ausführen</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<string>export path_to_app=$@
+
+/usr/bin/osascript &lt;&lt; EOF
+
+# Made by schreiberstein &lt;public@schreiberstein.co.uk&gt;
+# Font patch created by 'vista980622' &lt;http://forums.macrumors.com/member.php?u=724241&gt;
+set target_file_md5 to "da7daca57cf340c82328e613fb854ff0"
+set input_file_md5 to "0f32bc4d7b8f98569b2894c909321d96"
+set patch_file_md5 to "a49d7a8c06415115d35bd471e8d5996"
+set path_to_app to "$path_to_app"
+set path_to_patch to path_to_app &amp; "/Contents/Resources/modsysfontyos.patch"
+set path_to_patch_alt to quoted form of POSIX path of path_to_patch
+
+
+try
+	set check_patch_md5 to do shell script ("/sbin/md5 " &amp; path_to_patch_alt)
+on error
+	tell me to display alert "Patch not found!\nPlace 'modsysfontyos.patch'\nin 'Contents/Resources' !"
+	tell me to quit
+end try
+
+try
+	if patch_file_md5 is not in check_patch_md5 then
+		tell me to display alert ("Checksum of patch is wrong!\nIs : " &amp; check_patch_md5 &amp; "\n Should be : "&amp;  patch_file_md5)
+		tell me to quit
+	end if
+on error
+	tell me to quit
+end try
+
+	display dialog "This application installs a patched version of\n'Lucida Grande', the former Mac OS X default font.\nIt will be used as system font (Menu bar, Dock, ...).\nPress one of the buttons to continue.\n\nFont patch created by 'vista980622'\nhttp://forums.macrumors.com/member.php?u=724241\nTested on OS X Yosemite Public Beta 2\nVersion 1.0\n" buttons {"Patch and Install", "Uninstall", "License &amp; Exit"}
+	set ui_choice to button returned of result
+	if ui_choice = "Patch and Install" then
+		tell application "Finder"
+		     if exists POSIX file "/Library/Fonts/LucidaGrande_modsysfontyos.ttc" then
+				 set check_md5 to do shell script "/sbin/md5 /Library/Fonts/LucidaGrande_modsysfontyos.ttc"
+				 if target_file_md5 is in check_md5 then
+					 tell me to display alert "Already installed!"
+				 else
+					 tell me to display alert "Internal Error or already installed, but checksum of file differs."
+				 end if
+			 else				 
+				 set check_md5_input to do shell script "/sbin/md5 /System/Library/Fonts/LucidaGrande.ttc"
+				 if input_file_md5 is not in check_md5_input then
+				 	tell me to display alert "Incompatible version of LucidaGrande.ttc detected. Exiting..."
+					tell me to quit
+				 end if
+				 try
+					 do shell script ("/usr/bin/bspatch /System/Library/Fonts/LucidaGrande.ttc /Library/Fonts/LucidaGrande_modsysfontyos.ttc "&amp; path_to_patch_alt) with administrator privileges
+				onerror
+					tell me to display alert "Patching failed! Internal error!"
+					tell me to quit
+				end try	
+				 set check_md5_output to do shell script "/sbin/md5 /Library/Fonts/LucidaGrande_modsysfontyos.ttc"
+				 if target_file_md5 is in check_md5_output then
+					 tell me to display alert "Successfully installed!\nLogout or restart for changes to take effect!"
+				 else
+					 tell me to display alert "Internal Error or installed, but checksum of targetfile differs."
+				 end if
+				 
+			 end if
+		 end tell
+	end if
+
+	if ui_choice = "Uninstall" then
+		tell application "Finder"
+			if exists POSIX file "/Library/Fonts/LucidaGrande_modsysfontyos.ttc" then
+				 	do shell script "rm /Library/Fonts/LucidaGrande_modsysfontyos.ttc" with administrator privileges
+					tell me to display alert "Uninstalled successfully!"
+				 else
+					 tell me to display alert "Already uninstalled or internal error!"
+			end if
+		end tell
+	end if
+	
+	if ui_choice = "License &amp; Exit" then
+		display alert "License information - BSD 2-Clause" message "
+Copyright (c) 2014,
+schreiberstein &lt;public@schreiberstein.co.uk&gt;
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-----
+
+Font patch created by vista980622	
+
+
+-----
+
+Mac OS X is a registered trademark of Apple Inc."
+	end if
+EOF</string>
+					<key>CheckedForUserDefaultShell</key>
+					<true/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/bin/bash</string>
+					<key>source</key>
+					<string></string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.RunShellScript</string>
+				<key>CFBundleVersion</key>
+				<string>2.0.3</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunShellScriptAction</string>
+				<key>InputUUID</key>
+				<string>905241E9-AC95-4A11-B8C5-97C430673AB8</string>
+				<key>Keywords</key>
+				<array>
+					<string>Shell</string>
+					<string>Skript</string>
+					<string>Befehl</string>
+					<string>Ausführen</string>
+					<string>Unix</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>8D8D2560-7B16-48DB-8259-90494CEF92D9</string>
+				<key>UUID</key>
+				<string>FC716DC3-1236-4F18-9211-C03C28C36931</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<integer>0</integer>
+						<key>name</key>
+						<string>inputMethod</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<false/>
+						<key>name</key>
+						<string>CheckedForUserDefaultShell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>2</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>COMMAND_STRING</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>3</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>default value</key>
+						<string>/bin/sh</string>
+						<key>name</key>
+						<string>shell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>4</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>773.000000:736.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/German.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict>
+		<key>413F4DF1-6711-4849-801B-10A19A23BD22</key>
+		<dict>
+			<key>from</key>
+			<string>1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7 - 1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7</string>
+			<key>to</key>
+			<string>FC716DC3-1236-4F18-9211-C03C28C36931 - FC716DC3-1236-4F18-9211-C03C28C36931</string>
+		</dict>
+	</dict>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.application</string>
+	</dict>
+</dict>
+</plist>
