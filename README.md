@@ -11,4 +11,5 @@ Tested on OS X 10.10.0 Yosemite (14A389)
 
 Download : http://goo.gl/7qQff2
 
-![](/Screenshots/Screenshot_Dark_mode.jpg?raw=true "Screenshot - Dark Mode")
+![](https://raw.githubusercontent.com/schreiberstein/lucidagrandeyosemite/master/Screenshots/Screenshot_Dark_Mode.jpg "Screenshot - Dark Mode")
+
