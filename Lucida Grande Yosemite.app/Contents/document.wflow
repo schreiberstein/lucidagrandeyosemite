@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>404</string>
+	<string>409</string>
 	<key>AMApplicationVersion</key>
 	<string>2.5</string>
 	<key>AMDocumentVersion</key>
@@ -51,7 +51,121 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string># Get path of Automator script, as it'll vanish when using 'osascript' directlyon run {input, parameters}	return POSIX path of (path to me) as textend run</string>
+					<string>on run {input, parameters}	# Initial system compatibility check	set mac_os_x_version to system version of (system info)	if mac_os_x_version does not start with "10.10" then		tell me to display alert "Attention!
+
+Your Mac OS X version appears to be different from 10.10 Yosemite.
+Please note that there is no use for this patch on OS X versions below 10.10 Yosemite, neither is it expected to work.
+Future versions of OS X may or may not work. Please check the following URL for updates :
+
+https://github.com/schreiberstein/lucidagrandeyosemite
+
+ If you encounter issues or you're able to confirm that this patch works properly on a new OS X (pre-)release,
+ please give a feedback!
+"	end if	return inputend run</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>835A3660-65B3-48E6-9D85-754758FBD9D6</string>
+				<key>Keywords</key>
+				<array>
+					<string>Ausführen</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>7E6D319B-D041-428D-9BE6-FD0EE5BB48D7</string>
+				<key>UUID</key>
+				<string>6997A005-268C-4AD9-BF34-7C1C7B0E17F9</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>conversionLabel</key>
+				<integer>0</integer>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>773.000000:316.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>AppleScript ausführen</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string># Get path of Automator script, as it'll vanish when using 'osascript' directlyon run {input, parameters}	return POSIX path of (path to me) as textend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -105,7 +219,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>773.000000:316.000000</string>
+				<string>773.000000:562.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -191,7 +305,7 @@ on error
 	tell me to quit
 end try
 
-	display dialog "This application installs a patched version of\n'Lucida Grande', the former Mac OS X default font.\nIt will be used as system font (Menu bar, Dock, ...).\nPress one of the buttons to continue.\n\nFont patch created by 'vista980622'\nhttp://forums.macrumors.com/member.php?u=724241\nTested on OS X Yosemite Public Beta 2\nVersion 1.0\n" buttons {"Patch and Install", "Uninstall", "License &amp; Exit"}
+	display dialog "This application installs a patched version of\n'Lucida Grande', the former Mac OS X default font.\nIt will be used as system font (Menu bar, Dock, ...).\nPress one of the buttons to continue.\n\nFont patch created by 'vista980622'\nhttp://forums.macrumors.com/member.php?u=724241\nGitHub page : https://github.com/schreiberstein/lucidagrandeyosemite\nFacebook : https://www.facebook.com/systemfontyos\nTested on OS X Yosemite 10.10.0 (14A389) \nVersion 1.1\n" buttons {"Patch and Install", "Uninstall", "License &amp; Exit"}
 	set ui_choice to button returned of result
 	if ui_choice = "Patch and Install" then
 		tell application "Finder"
@@ -372,7 +486,7 @@ EOF</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>773.000000:736.000000</string>
+				<string>773.000000:1041.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/German.lproj/main.nib</string>
 			</dict>
@@ -382,12 +496,19 @@ EOF</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>413F4DF1-6711-4849-801B-10A19A23BD22</key>
+		<key>41CB3DE1-6013-436E-A392-E1DB3F94E96B</key>
 		<dict>
 			<key>from</key>
 			<string>1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7 - 1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7</string>
 			<key>to</key>
 			<string>FC716DC3-1236-4F18-9211-C03C28C36931 - FC716DC3-1236-4F18-9211-C03C28C36931</string>
+		</dict>
+		<key>D2D43760-36DA-407C-885F-1F8319007F77</key>
+		<dict>
+			<key>from</key>
+			<string>6997A005-268C-4AD9-BF34-7C1C7B0E17F9 - 6997A005-268C-4AD9-BF34-7C1C7B0E17F9</string>
+			<key>to</key>
+			<string>1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7 - 1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>

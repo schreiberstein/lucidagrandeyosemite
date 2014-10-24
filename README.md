@@ -1,10 +1,12 @@
 lucidagrandeyosemite
 ====================
 
-An Automator/Apple-script to use 'Lucida Grande' as system font on OS X 
-Yosemite.
+A small Apple Automator application which makes it possible to use the traditional Mac OS X system-font "Lucida Grande" on OS X 10.10 Yosemite.
 See http://forums.macrumors.com/showthread.php?t=1768362#22 for detail.
 Font patch created by vista980622, http://forums.macrumors.com/member.php?u=724241
 
-Tested on OS X Yosemite Public Beta 2 and its public update "Developer Preview 7 (14A361p)"
+"Like" on Facebook : https://www.facebook.com/systemfontyos
 
+Tested on OS X 10.10.0 Yosemite (14A389)
+
+Download : http://goo.gl/7qQff2
