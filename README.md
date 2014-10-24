@@ -10,7 +10,7 @@ Font patch created by vista980622, http://forums.macrumors.com/member.php?u=7242
 
 Tested on OS X 10.10.0 Yosemite (14A389)
 
-Download : http://goo.gl/7qQff2
+Download : http://goo.gl/nKqPvM (Version 1.2)
 
 ![](https://raw.githubusercontent.com/schreiberstein/lucidagrandeyosemite/master/Screenshots/Screenshot_Dark_Mode.jpg "Screenshot - Dark Mode")
 
