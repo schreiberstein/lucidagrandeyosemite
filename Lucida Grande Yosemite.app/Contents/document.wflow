@@ -51,17 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	# Initial system compatibility check	set mac_os_x_version to system version of (system info)	if mac_os_x_version does not start with "10.10" then		tell me to display alert "Attention!
-
-Your Mac OS X version appears to be different from 10.10 Yosemite.
-Please note that there is no use for this patch on OS X versions below 10.10 Yosemite, neither is it expected to work.
-Future versions of OS X may or may not work. Please check the following URL for updates :
-
-https://github.com/schreiberstein/lucidagrandeyosemite
-
- If you encounter issues or you're able to confirm that this patch works properly on a new OS X (pre-)release,
- please give a feedback!
-"	end if	return inputend run</string>
+					<string>on run {input, parameters}	# Initial system compatibility check	set mac_os_x_version to system version of (system info)	if mac_os_x_version does not start with "10.10" then		tell me to display alert "Attention!Your Mac OS X version appears to be different from 10.10 Yosemite.Please note that there is no use for this patch on OS X versions below 10.10 Yosemite, neither is it expected to work.Future versions of OS X may or may not work. Please check the following URL for updates :https://github.com/schreiberstein/lucidagrandeyosemite If you encounter issues or you're able to confirm that this patch works properly on a new OS X (pre-)release, please give a feedback!"	end if	return inputend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -112,8 +102,6 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -305,9 +293,9 @@ on error
 	tell me to quit
 end try
 
-	display dialog "This application installs a patched version of\n'Lucida Grande', the former Mac OS X default font.\nIt will be used as system font (Menu bar, Dock, ...).\nPress one of the buttons to continue.\n\nFont patch created by 'vista980622'\nhttp://forums.macrumors.com/member.php?u=724241\nGitHub page : https://github.com/schreiberstein/lucidagrandeyosemite\nFacebook : https://www.facebook.com/systemfontyos\nTested on OS X Yosemite 10.10.0 (14A389) \nVersion 1.1\n" buttons {"Patch and Install", "Uninstall", "License &amp; Exit"}
+	display dialog "This application installs a patched version of\n'Lucida Grande', the former Mac OS X default font.\nIt will be used as system font (Menu bar, Dock, ...).\nPress one of the buttons to continue.\n\nFont patch created by 'vista980622'\nhttp://forums.macrumors.com/member.php?u=724241\nGitHub page : https://github.com/schreiberstein/lucidagrandeyosemite\nFacebook : https://www.facebook.com/systemfontyos\nTested on OS X Yosemite 10.10.0 (14A389) \n\nVersion 1.2\n" buttons {"Patch &amp; Install &amp; Clear font cache", "Uninstall &amp; Clear font cache", "License &amp; Exit"}
 	set ui_choice to button returned of result
-	if ui_choice = "Patch and Install" then
+	if ui_choice = "Patch &amp; Install &amp; Clear font cache" then
 		tell application "Finder"
 		     if exists POSIX file "/Library/Fonts/LucidaGrande_modsysfontyos.ttc" then
 				 set check_md5 to do shell script "/sbin/md5 /Library/Fonts/LucidaGrande_modsysfontyos.ttc"
@@ -323,9 +311,9 @@ end try
 					tell me to quit
 				 end if
 				 try
-					 do shell script ("/usr/bin/bspatch /System/Library/Fonts/LucidaGrande.ttc /Library/Fonts/LucidaGrande_modsysfontyos.ttc "&amp; path_to_patch_alt) with administrator privileges
+					 do shell script ("/usr/bin/bspatch /System/Library/Fonts/LucidaGrande.ttc /Library/Fonts/LucidaGrande_modsysfontyos.ttc "&amp; path_to_patch_alt &amp; " ; /usr/bin/atsutil databases -remove") with administrator privileges
 				onerror
-					tell me to display alert "Patching failed! Internal error!"
+					tell me to display alert "Patching or clearing font cache failed! Internal error!"
 					tell me to quit
 				end try	
 				 set check_md5_output to do shell script "/sbin/md5 /Library/Fonts/LucidaGrande_modsysfontyos.ttc"
@@ -339,13 +327,26 @@ end try
 		 end tell
 	end if
 
-	if ui_choice = "Uninstall" then
+	if ui_choice = "Uninstall &amp; Clear font cache" then
 		tell application "Finder"
 			if exists POSIX file "/Library/Fonts/LucidaGrande_modsysfontyos.ttc" then
-				 	do shell script "rm /Library/Fonts/LucidaGrande_modsysfontyos.ttc" with administrator privileges
-					tell me to display alert "Uninstalled successfully!"
+				 	try
+						do shell script "rm /Library/Fonts/LucidaGrande_modsysfontyos.ttc ; /usr/bin/atsutil databases -remove" with administrator privileges
+						tell me to display alert "Uninstalled and font cache cleared successfully!"
+						tell me to quit
+					on error
+						tell me to display alert "Internal error!\nUninstallation might be incomplete!"
+						tell me to quit
+					end try
 				 else
-					 tell me to display alert "Already uninstalled or internal error!"
+					 tell me to display alert "Already uninstalled!\n\nClearing font cache ..."
+					try
+						do shell script "/usr/bin/atsutil databases -remove" with administrator privileges
+						tell me to display alert "Font cache cleared!"
+					on error
+						tell me to display alert "Internal error!\n Unable to clear font cache ..."
+						tell me to quit
+					end try
 			end if
 		end tell
 	end if
@@ -486,7 +487,7 @@ EOF</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>773.000000:1041.000000</string>
+				<string>773.000000:916.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/German.lproj/main.nib</string>
 			</dict>
@@ -496,19 +497,19 @@ EOF</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>41CB3DE1-6013-436E-A392-E1DB3F94E96B</key>
-		<dict>
-			<key>from</key>
-			<string>1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7 - 1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7</string>
-			<key>to</key>
-			<string>FC716DC3-1236-4F18-9211-C03C28C36931 - FC716DC3-1236-4F18-9211-C03C28C36931</string>
-		</dict>
-		<key>D2D43760-36DA-407C-885F-1F8319007F77</key>
+		<key>6685C604-6C95-42A7-AE82-48788CA98DF4</key>
 		<dict>
 			<key>from</key>
 			<string>6997A005-268C-4AD9-BF34-7C1C7B0E17F9 - 6997A005-268C-4AD9-BF34-7C1C7B0E17F9</string>
 			<key>to</key>
 			<string>1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7 - 1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7</string>
+		</dict>
+		<key>9F241E4D-EFA3-4180-AB5E-E3A6C756868B</key>
+		<dict>
+			<key>from</key>
+			<string>1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7 - 1D5F5930-1B99-4F52-92E1-4B93D3EA2FA7</string>
+			<key>to</key>
+			<string>FC716DC3-1236-4F18-9211-C03C28C36931 - FC716DC3-1236-4F18-9211-C03C28C36931</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
