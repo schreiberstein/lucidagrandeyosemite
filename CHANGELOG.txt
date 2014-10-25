@@ -1,0 +1,16 @@
+lucidagrandeyosemite
+====================
+
+Version 1.2
+- Application now clears OS X font cache
+- Issues on Retina displays persist (I'm working on this, ...)
+- Reapplied the icon, as the icon-file kept growing in size for unkown reasons
+
+Version 1.1
+- Updated description (works on OS X Final, ...)
+- Implemented system version check to make sure it isn't used on Mavericks or earlier
+- Patch not changed
+
+Version 1.0
+- Initial release
+- Created when Yosemite was still in public beta
