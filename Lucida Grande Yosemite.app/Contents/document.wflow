@@ -354,6 +354,7 @@ end try
 			if exists POSIX file "/Library/Fonts/LucidaGrande_modsysfontyos.ttc" then
 				 	try
 						do shell script "rm /Library/Fonts/LucidaGrande_modsysfontyos.ttc ; /usr/bin/atsutil databases -remove" with administrator privileges
+						do shell script "killall Dock"
 						tell me to display alert "Uninstalled and font cache cleared successfully!"
 						tell me to quit
 					on error
