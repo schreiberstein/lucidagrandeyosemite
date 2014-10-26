@@ -51,7 +51,24 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	# Initial system compatibility check	set mac_os_x_version to system version of (system info)	if mac_os_x_version does not start with "10.10" then		tell me to display alert "Attention!Your Mac OS X version appears to be different from 10.10 Yosemite.Please note that there is no use for this patch on OS X versions below 10.10 Yosemite, neither is it expected to work.Future versions of OS X may or may not work. Please check the following URL for updates :https://github.com/schreiberstein/lucidagrandeyosemite If you encounter issues or you're able to confirm that this patch works properly on a new OS X (pre-)release, please give a feedback!"	end if	return inputend run</string>
+					<string>on run {input, parameters}
+	# Initial system compatibility check
+	set mac_os_x_version to system version of (system info)
+	if mac_os_x_version does not start with "10.10" then
+		tell me to display alert "Attention!
+
+Your Mac OS X version appears to be different from 10.10 Yosemite.
+Please note that there is no use for this patch on OS X versions below 10.10 Yosemite, neither is it expected to work.
+Future versions of OS X may or may not work. Please check the following URL for updates :
+
+https://github.com/schreiberstein/lucidagrandeyosemite
+
+ If you encounter issues or you're able to confirm that this patch works properly on a new OS X (pre-)release,
+ please give a feedback!
+"
+	end if
+	return input
+end run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -153,7 +170,11 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string># Get path of Automator script, as it'll vanish when using 'osascript' directlyon run {input, parameters}	return POSIX path of (path to me) as textend run</string>
+					<string># Get path of Automator script, as it'll vanish when using 'osascript' directly
+on run {input, parameters}
+	return POSIX path of (path to me) as text
+end run
+</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -318,6 +339,7 @@ end try
 				end try	
 				 set check_md5_output to do shell script "/sbin/md5 /Library/Fonts/LucidaGrande_modsysfontyos.ttc"
 				 if target_file_md5 is in check_md5_output then
+				 	do shell script "killall Dock"
 					 tell me to display alert "Successfully installed!\nLogout or restart for changes to take effect!"
 				 else
 					 tell me to display alert "Internal Error or installed, but checksum of targetfile differs."
@@ -332,6 +354,7 @@ end try
 			if exists POSIX file "/Library/Fonts/LucidaGrande_modsysfontyos.ttc" then
 				 	try
 						do shell script "rm /Library/Fonts/LucidaGrande_modsysfontyos.ttc ; /usr/bin/atsutil databases -remove" with administrator privileges
+						do shell script "killall Dock"
 						tell me to display alert "Uninstalled and font cache cleared successfully!"
 						tell me to quit
 					on error
