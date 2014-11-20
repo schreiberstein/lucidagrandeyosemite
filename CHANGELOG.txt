@@ -1,6 +1,15 @@
 lucidagrandeyosemite
 ====================
 
+Version 1.3
+- New font patch included [Thank you, vista980622 !]
+==> Different font-weights implemented to deliver a more appropriate text experience
+==> For copyright-assurance : Encrypted using OpenSSL - binary-patch not readable without original Lucida Grande font
+- Updated LICENSE
+- Pure AppleScript (no 'osascript')
+- Added more comments
+- Minor changes unworthy of being mentioned, ...
+
 Version 1.2
 - Application now clears OS X font cache
 - Issues on Retina displays persist (I'm working on this, ...)

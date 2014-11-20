@@ -27,9 +27,21 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -----
 
-Font patch created by vista980622	
+Font modification created and maintained by vista980622,
+http://forums.macrumors.com/member.php?u=724241
 
+
+No copyrighted binary products are redistributed :
+The modification is applied by the user himself by running the patch-process.
+The patch is only usable if Lucida Grande is preexistent on the user's system.
 
 -----
 
 Mac OS X is a registered trademark of Apple Inc.
+
+Lucida is a trademark of Bigelow & Holmes Inc. -
+registered in the U.S. Patent and Trademark Office and other jurisdictions.
+Copyright 1989 Bigelow & Holmes, Inc. All rights reserved.
+Lucida typeface designs created by Kris Holmes and Charles Bigelow.
+
+-----
