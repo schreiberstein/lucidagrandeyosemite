@@ -3,11 +3,12 @@ lucidagrandeyosemite
 
 A small Apple Automator application which makes it possible to use the traditional Mac OS X system-font "Lucida Grande" on OS X 10.10 Yosemite.
 
-**Download : http://goo.gl/nKqPvM (Version 1.2 STABLE)**
+**Download : http://goo.gl/7YyZzM (Version 1.3 STABLE - see changelog)**
 
-**Download : http://goo.gl/7YyZzM (Version 1.3 TESTING - see changelog)**
+**Download : http://goo.gl/nKqPvM (Version 1.2 OLDSTABLE)**
 
-**UPDATE 20.11.2014 : Released 1.3 TESTING - new font patch - includes different font-weights**
+
+**UPDATE 20.11.2014 : Released 1.3 STABLE - new font patch - includes different font-weights**
 ** Please report your results with version 1.3! **
 
 **Or browse to /Packages and download the latest ZIP manually.**
