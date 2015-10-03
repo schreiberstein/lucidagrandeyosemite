@@ -1,6 +1,11 @@
 lucidagrandeyosemite
 ====================
 
+**For OS X El Capitan, go here:**
+**https://github.com/schreiberstein/lucidagrandeelcapitan**
+**Direct download: https://goo.gl/33KNpm**
+
+
 A small Apple Automator application which makes it possible to use the traditional Mac OS X system-font "Lucida Grande" on OS X 10.10 Yosemite.
 
 **Download : http://goo.gl/7YyZzM (Version 1.3 STABLE - see changelog)**
