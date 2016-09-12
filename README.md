@@ -1,6 +1,8 @@
 lucidagrandeyosemite
 ====================
 
+**Check out the updated version for MacOS made by my partner Kay Yin: https://github.com/HiKay/macOSLucidaGrande**
+
 **For OS X El Capitan, go here:**
 **https://github.com/schreiberstein/lucidagrandeelcapitan**
 **Direct download: https://goo.gl/33KNpm**
